@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>陈文菲_作业5</title>
+	
+	<style>
+		body {
+			left: 10px;
+			background: lightgrey;
+		}
+		#canvas {
+			top: 60px;
+			position: absolute;
+			background-color: white;
+			border: 5px inset white;
+			margin: 5;
+		}
+		#sliderValue {
+			color: blue;
+		}
+	</style>
+</head>
+	
+<body>
+	<canvas id="canvas" width="600px" height="400px">
+		Canvas not supported!
+	</canvas>
+	
+	<div id="controls">
+		<a id="sliderValue">1.00</a>
+		<input id="scaleSlider" type="range" value="1.00" min="0.00" max="2.00" step="0.01">
+		<input type="button" id="resetButton" value="Reset" checked/>
+	
+		<div id="scaleTypeRadios">
+			缩放方式：
+			<input type="radio" name="scaleType" value="topleft" checked/> Topleft
+			<input type="radio" name="scaleType" value="center" /> Center
+			<input type="radio" name="scaleType" value="rubberband" /> Rubberband
+			<input type="radio" name="scaleType" value="semi-trans" /> Semi-trans
+			<input type="radio" name="scaleType" value="emboss" /> Emboss
+		</div>
+	</div>
+	
+	<script src="HW5-js.js"></script>
+</body>
+	
+</html>

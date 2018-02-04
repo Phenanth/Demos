@@ -1,0 +1,14 @@
+body {
+	background: lightgrey;
+}
+#myCanvas {
+    /*width: 500;
+    height: 200;*/
+    position: absolute;
+    /*top: 40;
+    left: 60;*/
+	background-color: white;
+	/*padding: 5;*/
+	border: 5px inset grey;
+	margin: 5;
+}

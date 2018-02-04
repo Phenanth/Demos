@@ -1,0 +1,16 @@
+body {
+	background: lightgrey;
+}
+#myCanvas {
+    /*width: 500;
+    height: 200;*/
+    width: 300;
+    height: 150;
+    position: absolute;
+    top: 40;
+    left: 60;
+	background-color: lightblue;
+	padding: 5;
+	border: 10px inset yellow;
+	margin: 5;
+}

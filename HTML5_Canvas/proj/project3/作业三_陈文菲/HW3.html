@@ -1,0 +1,214 @@
+<html>
+
+<head>
+    <!--    请自行修改-->
+    <title>陈文菲_画图板</title>
+	
+    <style>
+		
+		@charset "UTF-8";
+		
+        body {
+            background: lightgrey;
+        }
+        
+        #controls {
+            position: absolute;
+            left: 130px;
+            top: 10px;
+        }
+        
+        #canvas {
+            background: #ffffff;
+            cursor: pointer;
+            margin-left: 120px;
+            margin-top: 30px;
+            /*
+			-webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+			*/
+			
+        }
+		
+		#container_buttons {
+			position: absolute;
+			left: -105px;
+			top: 40px;
+			text-align: center;
+		}
+		
+		#container_buttons p{
+			padding-bottom: 7px;
+			display:block;
+		}	
+		
+		.buttons {
+			width: 80px;
+			background-color:#9bb3e0;
+			padding:10px;
+			position:relative;
+			font-family: 'Open Sans', sans-serif;
+			font-size:12px;
+			text-decoration:none;
+			color:#fff;
+			border: solid 1px #906f8f;
+			background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+			background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+			background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+			background-image: -webkit-linear-gradient(bottom, rgb(144,160,202) 0%, rgb(162,184,229) 100%);
+			background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+			background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0, rgb(144,160,202)),
+			color-stop(1, rgb(162,184,229))
+			);
+			-webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+			-moz-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+			box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-o-border-radius: 5px;
+			border-radius: 5px;
+		}
+
+		.buttons::before {
+			background-color:#ccd0d5;
+			content:"";
+			display:block;
+			position:absolute;
+			width:100%;
+			height:100%;
+			padding:8px;
+			left:-8px;
+			top:-8px;
+			z-index:-1;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-o-border-radius: 5px;
+			border-radius: 5px;
+			-webkit-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+			-moz-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+			-o-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+			box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+		}
+
+		.buttons:active {
+			padding-bottom:9px;
+			padding-left:10px;
+			padding-right:10px;
+			padding-top:11px;
+			top:1px;
+			background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+			background-image: -o-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+			background-image: -moz-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+			background-image: -webkit-linear-gradient(bottom, rgb(162,184,229) 0%, rgb(144,160,202) 100%);
+			background-image: -ms-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+			background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0, rgb(162,184,229)),
+			color-stop(1, rgb(144,160,202))
+			);
+		}
+		
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas' width='1000' height='600'>
+        Canvas not supported
+    </canvas>
+
+    <div id='controls'>
+        Stroke color:
+        <select id='strokeStyleSelect'>
+			<option value="red">red</option>
+			<option value="green">green</option>
+			<option value='blue'>blue</option>
+			<option value="antiquewhite">antiquewhite</option>
+			<option value="white">white</option>
+        </select>
+		Fill color:
+		<select id='fillStyleSelect'>
+			<option value="red">red</option>
+			<option value="green">green</option>
+			<option value='blue'>blue</option>
+			<option value="antiquewhite">antiquewhite</option>
+			<option value="white">white</option>
+		</select>
+		Line Width:
+		<select id='lineWidth'>
+			<option value='0.5'>0.5px</option>
+			<option value='1.0'>1.0px</option>
+			<option value='3.0'>3.0px</option>
+			<option value='5.0'>5.0px</option>
+			<option value='10.0'>10.0px</option>
+		</select>
+        Guidewires:
+        <input id='guidewireCheckbox' type='checkbox' />
+        <input id='eraseAllButton' type='button' value='Erase all' />
+		
+    </div>
+	
+	<div id="controls">
+        <div id="container_buttons">
+            <p>
+                <button href="#" class="buttons" id="pb1">
+                    Line
+				</button>
+            </p>
+            <p>
+                <button href="#" class="buttons" id="pb2">
+                    Rect
+				</button>
+            </p>
+            <p>
+                <button href="#" class="buttons" id="pb3">
+                    Circle
+					</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb4">
+                    Tri
+				</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb5">
+                    Rounded
+					</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb6">
+                    Quadra
+				</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb7">
+                    Bezier
+				</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb8">
+                    Text
+				</button>
+            </p>
+			<p>
+                <button href="#" class="buttons" id="pb9">
+                    CAUTION
+				</button>
+            </p>
+        </div>
+	</div>
+	
+	<canvas id="conCanvas" width="100px" height="600px">
+        Canvas not supported
+	</canvas>
+    <script src='HW3.js'></script>
+	
+</body>
+
+</html>
